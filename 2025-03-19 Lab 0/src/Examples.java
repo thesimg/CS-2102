@@ -154,5 +154,16 @@ public class Examples {
         assertEquals(5900, houseCalculator.totalCost(1000, 0), 0.0001);
     }
 
+    @Test
+    public void testHouseCalculatorInterestCalculatorNoDownPayment(){
+        HouseCalculator houseCalculator = new HouseCalculator();
+        assertEquals(2400, houseCalculator.simpleInterest(1000, 0), 0.0001);
+    }
+
+    @Test
+    public void testHouseCalculatorInterestCalculatorWithDownPayment(){
+        HouseCalculator houseCalculator = new HouseCalculator();
+        assertEquals(0, houseCalculator.simpleInterest(1000, 1000), 0.0001);
+    }
 
 }
