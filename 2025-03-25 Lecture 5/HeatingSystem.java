@@ -41,6 +41,28 @@ public class HeatingSystem {
      * - consumes fuel
      */
     public void runFor(double seconds){
-        //stub
+
+        double liters = this.waterTank.capacity * this.waterTank.percentFull;
+        double changeKg = this.furnace.fuelConsumption * seconds;
+        double changeC = (this.fuelTank.kcalPotential * changeKg) / liters;
+
+
+//        this.waterTank.temperature += ???;
+//        this.fuelTank.amount = ???;
+//
+//        this.waterTank.
     }
+
+    public boolean equals(Object o){
+        // dynamic type checking
+        if(! (o instanceof HeatingSystem)){
+            return false;
+        }
+        HeatingSystem other = (HeatingSystem) o; // downcast o, only safe because it has been checked
+        return this.furnace.equals(other.furnace) &&
+                this.waterTank.equals(other.waterTank)
+                && this.fuelTank.equals(other.fuelTank);
+
+    }
+
 }

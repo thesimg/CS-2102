@@ -37,4 +37,13 @@ public class WaterTank {
     protected double deltaC(double targetTemp){
         return this.temperature > targetTemp ? 0 : this.temperature - targetTemp;
     }
+
+    public boolean equals(Object o){
+        if(o instanceof WaterTank other){
+            return Math.abs(this.temperature - other.temperature) < 0.01 &&
+                    Math.abs(this.percentFull - other.percentFull) < 0.01 &&
+                    Math.abs(this.capacity - other.capacity) < 0.01;
+        } else
+            return false;
+    }
 }

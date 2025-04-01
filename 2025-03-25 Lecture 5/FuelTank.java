@@ -18,4 +18,12 @@ public class FuelTank {
     protected double kgToBurn(double raiseC, double liters){
         return (raiseC * liters) / this.kcalPotential;
     }
+
+    public boolean equals(Object o){
+        if(o instanceof FuelTank other){
+            return Math.abs(this.amount - other.amount) < 0.01 &&
+                    Math.abs(this.kcalPotential - other.kcalPotential) < 0.01;
+        } else
+            return false;
+    }
 }

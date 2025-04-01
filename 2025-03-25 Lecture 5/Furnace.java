@@ -14,4 +14,11 @@ public class Furnace {
     protected double howLong(double kgToBurn){
         return kgToBurn / this.fuelConsumption;
     }
+
+    public boolean equals(Object o){
+        if(o instanceof Furnace other){
+            return Math.abs(this.fuelConsumption - other.fuelConsumption) < 0.01;
+        } else
+            return false;
+    }
 }
