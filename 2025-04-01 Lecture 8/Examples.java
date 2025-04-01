@@ -1,8 +1,8 @@
 import org.junit.Test;
 
-import static junit.framework.TestCase.*;
-
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class Examples {
 
@@ -44,34 +44,34 @@ public class Examples {
         assertEquals(List.of("Harvey"), aZoo.allThatFit(5));
     }
 
-//    @Test
-//    public void testDilloUnrolledTrue(){
-//        assertTrue(new Dillo(42,3,false).fitInExhibit(5));
-//    }
-//
-//    @Test
-//    public void testDilloUnrolledFalse(){
-//        assertFalse(new Dillo(42,3,false).fitInExhibit(2));
-//    }
-//
-//    @Test
-//    public void testDilloRolledTrue(){
-//        assertTrue(new Dillo(44,3,true).fitInExhibit(2));
-//    }
-//
-//    @Test
-//    public void testDilloRolledFalse(){
-//        assertFalse(new Dillo(44,3,true).fitInExhibit(1));
-//    }
-//
-//    @Test
-//    public void testZooWithBoasAndDillos(){
-//        Zoo aZoo = new Zoo(List.of(new Boa("Harvey",4,"Pizza", true),
-//                new Boa("Nokia",20,"Pixels", false),
-//                new Dillo(12,8,true),
-//                new Dillo(77,6,false)));
-//        assertEquals(List.of("Harvey", "Dillo#12"), aZoo.allThatFit(5));
-//    }
+    @Test
+    public void testDilloUnrolledTrue(){
+        assertTrue(new Dillo(42,3,false).fitInExhibit(5));
+    }
+
+    @Test
+    public void testDilloUnrolledFalse(){
+        assertFalse(new Dillo(42,3,false).fitInExhibit(2));
+    }
+
+    @Test
+    public void testDilloRolledTrue(){
+        assertTrue(new Dillo(44,3,true).fitInExhibit(2));
+    }
+
+    @Test
+    public void testDilloRolledFalse(){
+        assertFalse(new Dillo(44,3,true).fitInExhibit(1));
+    }
+
+    @Test
+    public void testZooWithBoasAndDillos(){
+        Zoo aZoo = new Zoo(List.of(new Boa("Harvey",4,"Pizza", true),
+                new Boa("Nokia",20,"Pixels", false),
+                new Dillo(12,8,true),
+                new Dillo(77,6,false)));
+        assertEquals(List.of("Harvey", "dillo#12"), aZoo.allThatFit(5));
+    }
 
 
 }
