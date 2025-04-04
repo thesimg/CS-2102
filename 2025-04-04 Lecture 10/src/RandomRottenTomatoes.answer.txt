@@ -1,0 +1,27 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
+public class RandomRottenTomatoes extends RottenTomatoes{
+
+    @Override
+    public List<FilmEntry> getFilmEntries() {
+        Random r = new Random();
+        List<FilmEntry> entries = new LinkedList<>();
+        int numLoop = r.nextInt(10);
+        for(int i = 0; i < numLoop; i++) {
+            char[] word = new char[5];
+            for (int j = 0; j < 5; j++) {
+                word[j] = (char) r.nextInt(97, 122);
+            }
+            String title = String.valueOf(word);
+            int score = r.nextInt(100);
+            int year = r.nextInt(9999);
+            entries.add(new FilmEntry(title, score, year));
+        }
+        return entries;
+
+    }
+
+
+}
