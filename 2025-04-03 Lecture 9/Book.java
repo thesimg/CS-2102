@@ -1,19 +1,11 @@
 import java.util.List;
 
-public class Book {
-    public String title;
-    public String author;
+public class Book extends Media {
     public List<String> chapters;
 
     public Book(String title, String author, List<String> chapters){
-        this.title = title;
-        this.author = author;
+        super(title, author);
         this.chapters = chapters;
-    }
-
-    @Override
-    public String toString(){
-        return String.format("\"%s\" by %s", this.title, this.author);
     }
 
     @Override
@@ -22,10 +14,6 @@ public class Book {
             return this.title.equals(b.title) && this.author.equals(b.author);
         }
         return false;
-    }
-
-    public boolean isCreatedBy(String author){
-        return this.author.equals(author);
     }
 
     public int numberOfChapters(){
