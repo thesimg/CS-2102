@@ -1,5 +1,8 @@
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class Examples {
@@ -85,5 +88,25 @@ public class Examples {
         assertEquals(0, mav.battery.amountLeft, 0.01);
     }
 
+
+    /*
+        LAB 2 TESTS
+     */
+
+    @Test
+    public void testOverThreshold() {
+        MAV mav1 = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 20);
+        MAV mav2 = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(30, 25), 20);
+        List<Vehicle> vehicles = new LinkedList<>();
+        vehicles.add(mav1);
+        vehicles.add(mav2);
+        Competition comp = new Competition(vehicles);
+        comp.simulateAll(1);
+        assertEquals(2, comp.overThreshold(0.0));
+    }
 
 }

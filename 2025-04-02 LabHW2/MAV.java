@@ -2,7 +2,7 @@
  * a Micro Air Vehicle object, which has n propellers and a battery
  * @author graham simons
  */
-public class MAV {
+public class MAV implements Vehicle {
     /**
      * a MAV object
      * @param name the name of the MAV
