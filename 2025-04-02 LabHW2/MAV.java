@@ -23,6 +23,14 @@ public class MAV implements Vehicle {
     }
 
     /**
+     * @returns a string identifying the vehicle by its specific logic
+     */
+    @Override
+    public String identifier() {
+        return "";
+    }
+
+    /**
      * @return the ratio (between 0.0 and 1.0) of meters travelable on the current charge to meters until its destination. If the vehicle can go past its destination, this should return 1.0
      */
     public double percentUntilRecharge(){
@@ -39,6 +47,24 @@ public class MAV implements Vehicle {
      */
     public boolean doesReachDest(){
         return this.percentUntilRecharge() == 1.0;
+    }
+
+    /**
+     * @return the distance in meters the vehicle can travel with a full battery
+     */
+    @Override
+    public double metersOnFull() {
+        return 0;
+    }
+
+    /**
+     * mutates the state of the vehicle to "travel" for the provided number of seconds at the speed given
+     *
+     * @param seconds the number of seconds
+     */
+    @Override
+    public void runFor(double seconds) {
+
     }
 
     /**

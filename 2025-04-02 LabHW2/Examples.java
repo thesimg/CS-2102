@@ -109,4 +109,110 @@ public class Examples {
         assertEquals(2, comp.overThreshold(0.0));
     }
 
+    @Test
+    public void testSimulateAll(){
+        MAV mav = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 20);
+        Competition c = new Competition(List.of(mav));
+        c.simulateAll(1);
+        MAV mavAfter = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 9), 19);
+        Competition cAfter = new Competition(List.of(mavAfter));
+        assertEquals(cAfter, c);
+    }
+
+    @Test
+    public void testAllLose(){
+        MAV mav = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 20);
+        MAV mav2 = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 20);
+        Competition c = new Competition(List.of(mav, mav2));
+        c.simulateAll(1);
+        assertEquals(c.potentialWinners(), List.of());
+    }
+
+    @Test
+    public void testAllWin(){
+        MAV mav = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 5);
+        MAV mav2 = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 5);
+        Competition c = new Competition(List.of(mav, mav2));
+        c.simulateAll(25);
+        assertEquals(c.potentialWinners(), List.of("bumblebee", "firefly"));
+    }
+
+    @Test
+    public void testOneWins(){
+        MAV mav = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 5);
+        MAV mav2 = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 50);
+        Competition c = new Competition(List.of(mav, mav2));
+        c.simulateAll(25);
+        assertEquals(c.potentialWinners(), List.of("bumblebee"));
+    }
+
+    @Test
+    public void testOneWinsRover(){
+        Rover rover = new Rover(1,
+                List.of(
+                        new Wheel(1, 10),
+                        new Wheel(1, 10)
+                ),
+                new Battery(1000, 1000),
+                List.of(1.0, 1.0)
+        );
+        Rover rover2 = new Rover(2,
+                List.of(
+                        new Wheel(1, 1),
+                        new Wheel(1, 1)
+                ),
+                new Battery(10, 10),
+                List.of(10.0, 10.0)
+        );
+        Competition c = new Competition(List.of(rover, rover2));
+        c.simulateAll(25);
+        assertEquals(c.potentialWinners(), List.of("Rover#1"));
+    }
+
+    @Test
+    public void firstGoesFurthest(){
+        MAV mav = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 5);
+        MAV mav2 = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(1000, 1000), 5);
+        Competition c = new Competition(List.of(mav, mav2));
+        assertEquals(c.whoGoesFurthest(), "firefly");
+    }
+
+    @Test
+    public void goesFurthestTie(){
+        MAV mav = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 5);
+        MAV mav2 = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(100, 100), 5);
+        Competition c = new Competition(List.of(mav, mav2));
+        assertEquals(c.whoGoesFurthest(), "firefly");
+    }
+
+    @Test
+    public void nobodyGoesFurthest(){
+        Competition c = new Competition(List.of());
+        assertEquals(c.whoGoesFurthest(), "Nobody");
+    }
+
 }
