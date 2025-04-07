@@ -29,6 +29,9 @@ public class Competition {
      * @return the intetify of the vehicle with the largest metersOnFull(). if there is a tie (within 0.01 meters), the vehicle that appears later in the vehicles List field should win. if there are no vehicles, "Nobody" should be produced
      */
     public String whoGoesFurthest() {
+        // first check if tehre are vehicles
+        // then
+
         return null;
     }
 
