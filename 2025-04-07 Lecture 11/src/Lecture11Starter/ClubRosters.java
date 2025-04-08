@@ -16,6 +16,8 @@ public class ClubRosters implements ClubManagable {
 
     public void intake(List<String> data){
         this.data.addAll(data);
+        this.clean();
+        this.parse();
     }
 
     public void parse(){
@@ -33,6 +35,13 @@ public class ClubRosters implements ClubManagable {
                 ClubRoster roster = rosters.get(index);
                 roster.addEmail(email);
             }
+            data.clear();
+
+            for(ClubRoster roster : rosters){
+                roster.emails.sort(String::compareTo);
+            }
+
+            rosters.sort(ClubRoster::compareTo);
         }
     }
 
@@ -78,7 +87,6 @@ public class ClubRosters implements ClubManagable {
             rosters.get(index).getEmails();
         }
 
-        emails.sort(String::compareTo);
         return emails;
     }
 }

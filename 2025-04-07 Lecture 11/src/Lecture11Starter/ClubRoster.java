@@ -2,7 +2,7 @@ package Lecture11Starter;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ClubRoster {
+public class ClubRoster implements Comparable<ClubRoster>{
     public String clubName;
     public List<String> emails;
 
@@ -36,5 +36,9 @@ public class ClubRoster {
         if(o instanceof ClubRoster other){
             return this.clubName.equals(other.clubName);
         }
+    }
+
+    public int compareTo(ClubRoster other){
+        return this.clubName.compareTo(other.clubName);
     }
 }
