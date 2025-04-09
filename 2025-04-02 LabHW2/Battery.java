@@ -11,6 +11,11 @@ public class Battery {
     double capacity;
     double amountLeft;
 
+    /**
+     * a battery constructor
+     * @param capacity the capacity (in mAs)
+     * @param amountLeft the amount left in the battery (in mAs)
+     */
     public Battery(double capacity, double amountLeft){
         this.capacity = capacity;
         this.amountLeft = amountLeft;
@@ -46,5 +51,22 @@ public class Battery {
      */
     protected void dischargeBy(double amount){
         this.amountLeft -= amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Battery{" + "capacity=" + capacity + ", amountLeft=" + amountLeft + '}';
+    }
+
+    /**
+     * @param o object to compare
+     * @return checks all attributes to ensure equality
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Battery battery) {
+            return Math.abs(this.capacity - battery.capacity) < 0.01 && Math.abs(this.amountLeft - battery.amountLeft) < 0.01;
+        }
+        return false;
     }
 }

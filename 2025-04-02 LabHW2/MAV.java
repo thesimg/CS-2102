@@ -3,6 +3,11 @@
  * @author graham simons
  */
 public class MAV implements Vehicle {
+    String name;
+    Propellers propellers;
+    Battery battery;
+    double metersToDest;
+
     /**
      * a MAV object
      * @param name the name of the MAV
@@ -10,11 +15,6 @@ public class MAV implements Vehicle {
      * @param battery is the Battery object for the MAV
      * @param metersToDest the distance to the destination in meters
      */
-    String name;
-    Propellers propellers;
-    Battery battery;
-    double metersToDest;
-
     public MAV(String name, Propellers propellers, Battery battery, double metersToDest){
         this.name = name;
         this.propellers = propellers;
@@ -27,7 +27,7 @@ public class MAV implements Vehicle {
      */
     @Override
     public String identifier() {
-        return "";
+        return this.name;
     }
 
     /**
@@ -37,16 +37,20 @@ public class MAV implements Vehicle {
         double currentDraw = this.propellers.totalCurrentDraw();
 
         double batteryTimeLeft = this.battery.timeToEmpty(currentDraw);
-        double metersTravelable = propellers.distanceTravelable(batteryTimeLeft);
+        double metersTravelable = this.propellers.distanceTravelable(batteryTimeLeft);
 
-        return metersTravelable / metersToDest;
+        if(this.metersToDest > 0) {
+            return metersTravelable / this.metersToDest;
+        } else {
+            return 1.0;
+        }
     }
 
     /**
      * @return if the vehicle can reach its destination with its current charge
      */
     public boolean doesReachDest(){
-        return this.percentUntilRecharge() == 1.0;
+        return Math.abs(percentUntilRecharge()) > 0.99;
     }
 
     /**
@@ -54,7 +58,10 @@ public class MAV implements Vehicle {
      */
     @Override
     public double metersOnFull() {
-        return 0;
+        double currentDraw = this.propellers.totalCurrentDraw();
+        double totalBatteryTime = this.battery.timeToEmpty(currentDraw);
+
+        return this.propellers.distanceTravelable(totalBatteryTime);
     }
 
     /**
@@ -64,7 +71,15 @@ public class MAV implements Vehicle {
      */
     @Override
     public void runFor(double seconds) {
+        double totalCurrentDraw = this.propellers.totalCurrentDraw();
+        double batteryCapacityUsed = this.battery.amountDischargedIn(totalCurrentDraw, seconds);
 
+        this.battery.dischargeBy((this.battery.amountLeft - batteryCapacityUsed >= 0) ? batteryCapacityUsed : this.battery.amountLeft);
+
+
+        double distanceTravelled = propellers.distanceTravelable(seconds);
+
+        this.metersToDest = (this.metersToDest - distanceTravelled >= 0) ? this.metersToDest - distanceTravelled : 0;
     }
 
     /**
@@ -91,19 +106,22 @@ public class MAV implements Vehicle {
     }
 
     /**
-     * mutates the state of the vehicle to "travel" for the provided number of seconds at the speed of its propellers,
-     * @param seconds
+     * @return the name of the MAV
      */
-    public void flyFor(double seconds){
-        double totalCurrentDraw = this.propellers.totalCurrentDraw();
-        double batteryCapacityUsed = this.battery.amountDischargedIn(totalCurrentDraw, seconds);
+    @Override
+    public String toString(){
+        return this.name;
+    }
 
-        this.battery.dischargeBy((this.battery.amountLeft - batteryCapacityUsed >= 0) ? batteryCapacityUsed : this.battery.amountLeft);
-
-
-        double distanceTravelled = propellers.distanceTravelable(seconds);
-
-        this.metersToDest = (this.metersToDest - distanceTravelled >= 0) ? this.metersToDest - distanceTravelled : 0;
-
+    /**
+     * @param o object to compare
+     * @return checks all attributes to ensure equality
+     */
+    @Override
+    public boolean equals(Object o){
+        if(o instanceof MAV mav) {
+            return this.name.equals(mav.name) && this.propellers.equals(mav.propellers) && this.battery.equals(mav.battery) && Math.abs(this.metersToDest - mav.metersToDest) < 0.01;
+        }
+        return false;
     }
 }

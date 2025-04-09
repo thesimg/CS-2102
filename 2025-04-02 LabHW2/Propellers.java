@@ -34,4 +34,23 @@ public class Propellers {
         return speed * time;
     }
 
+    /**
+     * @return the speed, count, and current draw of the propellers
+     */
+    @Override
+    public String toString() {
+        return this.speed + " " + this.count + " " + this.currentDrawEach;
+    }
+
+    /**
+     * @param o object to compare
+     * @return checks all attributes to ensure equality
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Propellers propellers) {
+            return this.count == propellers.count && Math.abs(this.speed - propellers.speed) < 0.01 && Math.abs(this.currentDrawEach - propellers.currentDrawEach) < 0.01;
+        }
+        return false;
+    }
 }
