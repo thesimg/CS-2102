@@ -236,18 +236,18 @@ public class Examples {
     public void ThreeMAVand2RoverWhoGoesFurthest(){
         Rover rover = new Rover(1,
                 List.of(
-                        new Wheel(1, 10),
-                        new Wheel(1, 10)
+                        new Wheel(1,100),
+                        new Wheel(1, 100)
                 ),
-                new Battery(100, 10),
-                List.of(1.0, 1.0)
+                new Battery(100, 100),
+                List.of(1.0, 100.0)
         );
         Rover rover2 = new Rover(2,
                 List.of(
                         new Wheel(1, 1),
                         new Wheel(1, 1)
                 ),
-                new Battery(10, 0),
+                new Battery(1, 1),
                 List.of(10.0, 100.0)
         );
         MAV mav = new MAV("bumblebee",
@@ -255,12 +255,12 @@ public class Examples {
                 new Battery(10, 10), 5);
         MAV mav2 = new MAV("firefly",
                 new Propellers(4, 1, 0.25),
-                new Battery(100, 100), 5);
+                new Battery(10, 100), 5);
         MAV mav3 = new MAV("hornet",
                 new Propellers(4, 1, 0.25),
-                new Battery(100, 0), 5);
+                new Battery(10, 0), 5);
         Competition c = new Competition(List.of(mav, mav2, mav3, rover, rover2));
-        assertEquals("firefly", c.whoGoesFurthest());
+        assertEquals("Rover#2", c.whoGoesFurthest());
     }
 
 }

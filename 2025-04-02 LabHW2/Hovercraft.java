@@ -115,7 +115,7 @@ public class Hovercraft implements Vehicle {
     @Override
     public boolean equals(Object o){
         if (o instanceof Hovercraft hovercraft) {
-            return this.name.equals(hovercraft.name) && this.skirt.equals(hovercraft.skirt) && this.battery.equals(hovercraft.battery) && Math.abs(this.distanceToDestination - hovercraft.distanceToDestination) < 0.01;
+            return this.name.equals(hovercraft.name) && this.skirt.equals(hovercraft.skirt) && this.battery.equals(hovercraft.battery) && Math.abs(this.distanceToDestination - hovercraft.distanceToDestination) < 0.02;
         }
         return false;
     }

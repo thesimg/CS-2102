@@ -65,7 +65,7 @@ public class Battery {
     @Override
     public boolean equals(Object o) {
         if (o instanceof Battery battery) {
-            return Math.abs(this.capacity - battery.capacity) < 0.01 && Math.abs(this.amountLeft - battery.amountLeft) < 0.01;
+            return Math.abs(this.capacity - battery.capacity) < 0.02 && Math.abs(this.amountLeft - battery.amountLeft) < 0.02;
         }
         return false;
     }

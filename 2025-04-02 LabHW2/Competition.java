@@ -79,7 +79,7 @@ public class Competition {
         for (Vehicle vehicle : vehicles) {
             returnString += vehicle.toString() + " ";
         }
-        return returnString.substring(0, vehicles.toString().length() - 1);
+        return returnString;
     }
 
     /**

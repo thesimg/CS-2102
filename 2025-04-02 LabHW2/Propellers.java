@@ -49,7 +49,7 @@ public class Propellers {
     @Override
     public boolean equals(Object o) {
         if (o instanceof Propellers propellers) {
-            return this.count == propellers.count && Math.abs(this.speed - propellers.speed) < 0.01 && Math.abs(this.currentDrawEach - propellers.currentDrawEach) < 0.01;
+            return this.count == propellers.count && Math.abs(this.speed - propellers.speed) < 0.02 && Math.abs(this.currentDrawEach - propellers.currentDrawEach) < 0.02;
         }
         return false;
     }

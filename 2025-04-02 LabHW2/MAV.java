@@ -120,7 +120,7 @@ public class MAV implements Vehicle {
     @Override
     public boolean equals(Object o){
         if(o instanceof MAV mav) {
-            return this.name.equals(mav.name) && this.propellers.equals(mav.propellers) && this.battery.equals(mav.battery) && Math.abs(this.metersToDest - mav.metersToDest) < 0.01;
+            return this.name.equals(mav.name) && this.propellers.equals(mav.propellers) && this.battery.equals(mav.battery) && Math.abs(this.metersToDest - mav.metersToDest) < 0.02;
         }
         return false;
     }

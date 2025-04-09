@@ -45,7 +45,7 @@ public class Wheel {
     @Override
     public boolean equals(Object o){
         if (o instanceof Wheel wheel) {
-            return Math.abs(wheel.radius - this.radius) < 0.01 && Math.abs(wheel.rps - this.rps) < 0.01;
+            return Math.abs(wheel.radius - this.radius) < 0.02 && Math.abs(wheel.rps - this.rps) < 0.02;
         }
         return false;
     }

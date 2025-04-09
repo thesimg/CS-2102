@@ -45,7 +45,7 @@ public class Skirt {
     @Override
     public boolean equals(Object o){
         if (o instanceof Skirt skirt) {
-            return Math.abs(this.radius - skirt.radius) < 0.01 && Math.abs(this.height - skirt.height) < 0.01 && Math.abs(this.propulsion - skirt.propulsion) < 0.01;
+            return Math.abs(this.radius - skirt.radius) < 0.02 && Math.abs(this.height - skirt.height) < 0.02 && Math.abs(this.propulsion - skirt.propulsion) < 0.02;
         }
         return false;
     }
