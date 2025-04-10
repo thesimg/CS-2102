@@ -124,6 +124,30 @@ public class Examples {
     }
 
     @Test
+    public void testSimulateAllRover(){
+        Rover rover = new Rover(2,
+                List.of(
+                        new Wheel(1, 1),
+                        new Wheel(1, 1)
+                ),
+                new Battery(10, 10),
+                List.of(10.0, 10.0)
+        );
+        Competition c = new Competition(List.of(rover));
+        c.simulateAll(1);
+        Rover roverAfter = new Rover(2,
+                List.of(
+                        new Wheel(1, 1),
+                        new Wheel(1, 1)
+                ),
+                new Battery(10, 8),
+                List.of(10.0, 10.0)
+        );
+        Competition cAfter = new Competition(List.of(roverAfter));
+        assertEquals(c, cAfter);
+    }
+
+    @Test
     public void testAllLose(){
         MAV mav = new MAV("bumblebee",
                 new Propellers(4, 1, 0.25),
