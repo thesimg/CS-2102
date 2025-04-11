@@ -1,0 +1,51 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class Gachapon {
+
+    private List<Toy> toys = new LinkedList<>();
+
+    private IToyBinStrategy tbStrat;
+
+    private int quartersLoaded = 0;
+
+    private int quartersPerToy = 2;
+
+    public Gachapon(List<Toy> toys){
+        this.toys = new LinkedList<Toy>(toys); // Encapsulation error!!!!
+        this.tbStrat = new InOrderTBStrat();
+    }
+
+    public void setStrategy(IToyBinStrategy newStrat){
+        this.tbStrat = newStrat;
+    }
+
+    public Gachapon refillToyBin(List<Toy> toys){
+        this.toys.addAll(toys);
+        return this;
+    }
+
+    public Gachapon loadQuarter(){
+        this.quartersLoaded++;
+        return this;
+    }
+    public Gachapon loadQuarter(int howMany){
+        this.quartersLoaded+= howMany;
+        return this;
+    }
+
+    public int refundQuarters(){
+        int quartersToRefund = this.quartersLoaded;
+        this.quartersLoaded = 0;
+        return quartersToRefund;
+    }
+
+    public List<Toy> receiveToys(){
+        GachaResult gr = this.tbStrat.receiveToys(quartersLoaded,quartersPerToy, toys);
+        quartersLoaded -= gr.getQuartersSpent();
+        return gr.getToysToReturn();
+    }
+
+
+
+}
