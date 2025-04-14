@@ -51,6 +51,8 @@ public class Main {
 
         Gachapon g = new Gachapon(pokemonToys);
 
+//        g.setStrategy(new RiggedTBStrat());
+        g.setStrategy(new OverpoweredTBStrat());
 
         // method chaining (Used in the builder pattern a lot):
         System.out.println(g.loadQuarter().loadQuarter().loadQuarter().loadQuarter().receiveToys());
