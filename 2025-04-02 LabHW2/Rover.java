@@ -117,26 +117,15 @@ public class Rover implements Vehicle {
      */
     @Override
     public void runFor(double seconds) {
-//        double totalCurrentDraw = this.totalCurrentDraw();
-//        double batteryCapacityUsed = this.battery.amountDischargedIn(totalCurrentDraw, seconds);
+////        double totalCurrentDraw = this.totalCurrentDraw();
+////        double batteryCapacityUsed = this.battery.amountDischargedIn(totalCurrentDraw, seconds);
+////
+////        this.battery.dischargeBy((this.battery.amountLeft - batteryCapacityUsed >= 0) ? batteryCapacityUsed : this.battery.amountLeft);
 //
-//        this.battery.dischargeBy((this.battery.amountLeft - batteryCapacityUsed >= 0) ? batteryCapacityUsed : this.battery.amountLeft);
-
-        double totalDistanceToTravel = metersTravelableInSeconds(seconds);
-
-        while (totalDistanceToTravel > 0 && this.battery.amountLeft > 0 && !this.wayPoints.isEmpty()) {
-//            if (totalDistanceToTravel > this.wayPoints.get(0)) {
-                double distance = this.wayPoints.get(0);
-                totalDistanceToTravel -= distance;
-
-                // get the time traveled during this waypoint
-                double timeToWaypoint = distance / minSpeed();
-
-                double batteryDrain = this.battery.amountDischargedIn(this.totalCurrentDraw(), timeToWaypoint);
-                this.battery.dischargeBy(batteryDrain);
-
-                this.wayPoints.remove(0);
-//            } else {
+//        double totalDistanceToTravel = metersTravelableInSeconds(seconds);
+//
+//        while (totalDistanceToTravel > 0 && this.battery.amountLeft > 0 && !this.wayPoints.isEmpty()) {
+////            if (totalDistanceToTravel > this.wayPoints.get(0)) {
 //                double distance = this.wayPoints.get(0);
 //                totalDistanceToTravel -= distance;
 //
@@ -147,7 +136,52 @@ public class Rover implements Vehicle {
 //                this.battery.dischargeBy(batteryDrain);
 //
 //                this.wayPoints.remove(0);
+////            } else {
+////                double distance = this.wayPoints.get(0);
+////                totalDistanceToTravel -= distance;
+////
+////                // get the time traveled during this waypoint
+////                double timeToWaypoint = distance / minSpeed();
+////
+////                double batteryDrain = this.battery.amountDischargedIn(this.totalCurrentDraw(), timeToWaypoint);
+////                this.battery.dischargeBy(batteryDrain);
+////
+////                this.wayPoints.remove(0);
+////            }
+//        }
+
+
+//        double distanceToTravel = metersTravelableInSeconds(seconds);
+//
+//        battery.dischargeBy(this.totalCurrentDraw() * seconds);
+//        List<Double> remainingWaypoints = new ArrayList<>();
+//        double remainingDistance = distanceToTravel;
+//        for (double waypoint : this.wayPoints) {
+//            if (remainingDistance >= waypoint) {
+//                remainingDistance -= waypoint;
+//            } else {
+//                remainingWaypoints.add(waypoint - remainingDistance);
+//                remainingDistance = 0;
 //            }
+//        }
+//        if (remainingDistance > 0) {
+//            remainingWaypoints.add(remainingDistance);
+//        }
+//
+//        this.wayPoints = remainingWaypoints;
+
+        double distance = metersTravelableInSeconds(seconds);
+        battery.dischargeBy(seconds * totalCurrentDraw());
+
+        while (!wayPoints.isEmpty() && distance > 0) {
+            double currentWaypoint = wayPoints.get(0);
+            if (distance >= currentWaypoint) {
+                distance -= currentWaypoint;
+                wayPoints.remove(0);
+            } else {
+                wayPoints.set(0, currentWaypoint - distance);
+                distance = 0;
+            }
         }
     }
 

@@ -141,7 +141,7 @@ public class Examples {
                         new Wheel(1, 1)
                 ),
                 new Battery(10, 8),
-                List.of(10.0, 10.0)
+                List.of(6.0, 10.0)
         );
         Competition cAfter = new Competition(List.of(roverAfter));
         assertEquals(c, cAfter);
@@ -285,6 +285,58 @@ public class Examples {
                 new Battery(10, 0), 5);
         Competition c = new Competition(List.of(mav, mav2, mav3, rover, rover2));
         assertEquals("Rover#2", c.whoGoesFurthest());
+    }
+
+    @Test
+    public void TwoMAVand2RoverSimulateAll(){
+        Rover rover = new Rover(1,
+                List.of(
+                        new Wheel(1,1),
+                        new Wheel(1, 1)
+                ),
+                new Battery(10, 10),
+                List.of(1.0, 10.0)
+        );
+        Rover rover2 = new Rover(2,
+                List.of(
+                        new Wheel(1, 1),
+                        new Wheel(1, 1)
+                ),
+                new Battery(1, 1),
+                List.of(10.0)
+        );
+        MAV mav = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 5);
+        MAV mav2 = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 10), 5);
+        Competition c = new Competition(List.of(mav, mav2, rover, rover2));
+        c.simulateAll(1);
+        Rover roverAfter = new Rover(1,
+                List.of(
+                        new Wheel(1,1),
+                        new Wheel(1, 1)
+                ),
+                new Battery(8, 10),
+                List.of(1.0, 10.0)
+        );
+        Rover rover2After = new Rover(2,
+                List.of(
+                        new Wheel(1, 1),
+                        new Wheel(1, 1)
+                ),
+                new Battery(8, 1),
+                List.of(10.0)
+        );
+        MAV mavAfter = new MAV("bumblebee",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 9), 4);
+        MAV mav2After = new MAV("firefly",
+                new Propellers(4, 1, 0.25),
+                new Battery(10, 9), 4);
+        Competition cAfter = new Competition(List.of(mav, mav2, rover, rover2));
+        assertEquals(cAfter, c);
     }
 
 }
