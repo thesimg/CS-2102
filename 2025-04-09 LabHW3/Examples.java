@@ -71,6 +71,39 @@ public class Examples {
         assertTrue(deltaBP < deltaRTP);
     }
 
+    @Test
+    public void testAuditorCountsErrors() {
+        THBPAuditor auditor = new THBPAuditor();
+        auditor.collect("20250409 T 68.0 H 30.0 Err T 70.0");
+        auditor.collect("20250410 T 72.0 Err H 40.0");
+        assertEquals(2, auditor.getErrorCount());
+    }
+
+    @Test
+    public void testAuditorStillComputesHumidity() {
+        THBPAuditor auditor = new THBPAuditor();
+        auditor.collect("20250409 T 68.0 H 30.0 Err T 70.0");
+        auditor.collect("20250410 T 72.0 Err H 40.0");
+        assertEquals(35.0, auditor.avgHumidity(), 0.01);
+    }
+
+    @Test
+    public void testRTPDateOnlyKeepsMatchingDate() {
+        THSensible sensor = new THRTPDate("20250409");
+        sensor.collect("20250409 T 68.0 H 30.0 T 70.0");
+        sensor.collect("20250410 T 99.0 H 99.0");
+        assertEquals(0, sensor.tempsOutsideRange(60, 80)); // within range
+        assertEquals(30.0, sensor.minHumidity(), 0.01);
+    }
+
+    @Test
+    public void testRTPDateIgnoresOtherDates() {
+        THSensible sensor = new THRTPDate("20250410");
+        sensor.collect("20250409 T 20.0 H 10.0"); // should be ignored
+        sensor.collect("20250410 T 100.0 H 90.0");
+        assertEquals(1, sensor.tempsOutsideRange(50, 80));
+        assertEquals(90.0, sensor.avgHumidity(), 0.01);
+    }
 
 
 }

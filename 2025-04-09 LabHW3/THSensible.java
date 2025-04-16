@@ -1,3 +1,7 @@
+/**
+ * an interface to make something a temperature and humidity sensor
+ * @author graham simons
+ */
 public interface THSensible {
     /**
      * @param data to be split and stored
