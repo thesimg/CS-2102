@@ -108,4 +108,44 @@ public class Examples {
         assertEquals(Optional.empty(), bst.search("jerry"));
         assertEquals(Optional.empty(), bst.search("tom"));
     }
+
+    /// extra creudt
+    @Test
+    public void testBTNode2Size() {
+        IBinTree<Integer> t = new BTNode2<>(10, new BTEmpty<>(), new BTEmpty<>());
+        assertEquals(1, t.size());
+
+        IBinTree<Integer> t2 = new BTNode2<>(20, t, new BTEmpty<>());
+        assertEquals(2, t2.size());
+
+        IBinTree<Integer> t3 = new BTNode2<>(30, t2, t);
+        assertEquals(4, t3.size());
+    }
+
+    @Test
+    public void testValidatorAVLValidAdd() {
+        IBinTree<Integer> oldTree = new BTNode<>(10,
+                new BTNode<>(5, new BTEmpty<>(), new BTEmpty<>()),
+                new BTNode<>(15, new BTEmpty<>(), new BTEmpty<>()));
+        IBinTree<Integer> newTree = new BTNode<>(10,
+                new BTNode<>(5, new BTEmpty<>(), new BTNode<>(7, new BTEmpty<>(), new BTEmpty<>())),
+                new BTNode<>(15, new BTEmpty<>(), new BTEmpty<>()));
+
+        ValidatorAVL<Integer> validator = new ValidatorAVL<>();
+        assertTrue(validator.validAdd(oldTree, 7, newTree));
+    }
+
+    @Test
+    public void testValidatorAVLInvalidUnbalanced() {
+        IBinTree<Integer> oldTree = new BTNode<>(10,
+                new BTNode<>(5, new BTEmpty<>(), new BTEmpty<>()),
+                new BTNode<>(15, new BTEmpty<>(), new BTEmpty<>()));
+        IBinTree<Integer> badTree = new BTNode<>(10,
+                new BTNode<>(5, new BTNode<>(3, new BTNode<>(1, new BTEmpty<>(), new BTEmpty<>()), new BTEmpty<>()), new BTEmpty<>()),
+                new BTNode<>(15, new BTEmpty<>(), new BTEmpty<>()));
+
+        ValidatorAVL<Integer> validator = new ValidatorAVL<>();
+        assertFalse(validator.validAdd(oldTree, 3, badTree));
+    }
+
 }

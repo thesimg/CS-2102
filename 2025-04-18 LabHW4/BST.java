@@ -8,12 +8,23 @@ public class BST<E extends Comparable<E>> extends BinaryTree<E> {
     }
 
     public Optional<E> search(E key){
-        return Optional.empty(); //stub, replace me
+        return search(key, this.data);
     }
 
-    private Optional<E> search(E key, IBinTree<E> someTree){
+    private Optional<E> search(E key, IBinTree<E> tree){
         // TODO
-        return Optional.empty(); //stub, replace me        
+        if (tree.isEmpty()) {
+            return Optional.empty();
+        }
+
+        int cmp = key.compareTo(tree.getRoot());
+        if (cmp == 0) {
+            return Optional.of(tree.getRoot());
+        } else if (cmp < 0) {
+            return search(key, tree.getLeft());
+        } else {
+            return search(key, tree.getRight());
+        }
     }
 
 }
