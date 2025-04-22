@@ -1,3 +1,7 @@
+/**
+ * a heap insertion strategy that maintains the min-heap invariant.
+ * @author graham simons
+ */
 class StrategyMinHeap<E extends Comparable<E>> extends StrategyBTAbs<E> implements IBTStrategy<E> {
     @Override
     public IBinTree<E> addElt(E elt, IBinTree<E> b) {

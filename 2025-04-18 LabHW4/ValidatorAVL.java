@@ -1,3 +1,7 @@
+/**
+ * a validator for AVL trees: ensures BST invariant and height balance.
+ * @author graham simons
+ */
 class ValidatorAVL<E extends Comparable<E>> extends ValidatorBST<E> {
     @Override
     public boolean validAdd(IBinTree<E> oldTree, E elt, IBinTree<E> newTree) {

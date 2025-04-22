@@ -1,18 +1,33 @@
 import java.util.Optional;
+/**
+ * a binary search tree implementation extending BinaryTree
+ * with an efficient recursive search method based on BST invariants
+ * @author graham simons
+ */
 public class BST<E extends Comparable<E>> extends BinaryTree<E> {
 
-    public BST(IBinTree<E> data){
+    /**
+     * constructs a BST from a given IBinTree and sets the appropriate strategy and validator
+     */
+    public BST(IBinTree<E> data) {
         this.data = data;
         this.setStrategy(new StrategyBST<>());
         this.setValidator(new ValidatorBST<>());
     }
 
-    public Optional<E> search(E key){
+    /**
+     * public search method for finding an element in the tree
+     * @param key the element to search for
+     * @return an Optional containing the element if found, otherwise empty
+     */
+    public Optional<E> search(E key) {
         return search(key, this.data);
     }
 
-    private Optional<E> search(E key, IBinTree<E> tree){
-        // TODO
+    /**
+     * private helper for recursively searching the binary search tree
+     */
+    private Optional<E> search(E key, IBinTree<E> tree) {
         if (tree.isEmpty()) {
             return Optional.empty();
         }
@@ -26,5 +41,4 @@ public class BST<E extends Comparable<E>> extends BinaryTree<E> {
             return search(key, tree.getRight());
         }
     }
-
 }

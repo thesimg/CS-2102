@@ -1,4 +1,12 @@
-public abstract class ValidatorHeapAbstract<E extends Comparable<E>> implements IBTValidator<E> {
+/**
+ * an abstract class for validating heaps with shared logic for validAdd and validRemove.
+ * @author graham simons
+ */
+abstract class ValidatorHeapAbstract<E extends Comparable<E>> implements IBTValidator<E> {
+
+    /**
+     * validates whether a heap insertion respected all invariants.
+     */
     @Override
     public boolean validAdd(IBinTree<E> oldTree, E elt, IBinTree<E> newTree) {
         return countElt(elt, newTree) == countElt(elt, oldTree) + 1
@@ -7,6 +15,9 @@ public abstract class ValidatorHeapAbstract<E extends Comparable<E>> implements 
                 && heapInvariant(newTree);
     }
 
+    /**
+     * validates whether a heap removal respected all invariants.
+     */
     @Override
     public boolean validRemove(IBinTree<E> oldTree, E elt, IBinTree<E> newTree) {
         return countElt(elt, newTree) == countElt(elt, oldTree) - 1
@@ -28,7 +39,6 @@ public abstract class ValidatorHeapAbstract<E extends Comparable<E>> implements 
                 && containsAll(subset.getRight(), superset);
     }
 
-
     private boolean containsAllAfterRemovingOne(IBinTree<E> subset, E removedElt, IBinTree<E> superset) {
         if (subset.isEmpty()) return true;
         int expectedCount = countElt(subset.getRoot(), subset);
@@ -48,6 +58,8 @@ public abstract class ValidatorHeapAbstract<E extends Comparable<E>> implements 
                 && heapInvariant(b.getRight());
     }
 
+    /**
+     * subclass method that checks whether a parent-child pair respects the heap property.
+     */
     protected abstract boolean heapRespected(E parent, IBinTree<E> child);
-
 }
