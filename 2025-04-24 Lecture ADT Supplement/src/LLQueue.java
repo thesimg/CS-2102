@@ -16,8 +16,11 @@ public class LLQueue<T> extends LinkedList<T> implements Queue<T>{
 
     @Override
     public void transferAllTo(Queue<T> other) {
-        for(T elt : this){
-            other.enqueue(elt);
+//        for(T elt : this){
+//            other.enqueue(elt);
+//        }
+        while(this.size() > 0){
+            other.enqueue(this.dequeue());
         }
     }
 }

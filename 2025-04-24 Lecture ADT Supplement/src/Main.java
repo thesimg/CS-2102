@@ -11,11 +11,15 @@ public class Main {
             if(r.nextBoolean()){
                 d.takeOrder(new Customer(String.format("Customer #%d",i),
                                          r.nextInt(10000),
-                                         r.nextInt(10)));
+                                         r.nextInt(10) + 1));
             } else {
                 helped.addAll(d.runShift());
             }
         }
         System.out.println("done!");
+
+        d.swapQueue(???);
+
+
     }
 }

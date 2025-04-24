@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Supplier;
 public class Deli {
 
-    List<Customer> customers = new ArrayList<Customer>();
+    Queue<Customer> customers = new LLQueue<Customer>();
     int workers = 3;
 
     /**
@@ -12,7 +12,7 @@ public class Deli {
      * @param customer
      */
     public void takeOrder(Customer customer) {
-        customers.add(customer);
+        customers.enqueue(customer);
         if(customers.size() >= 2 * workers) {
             workers++;
         }
@@ -25,17 +25,20 @@ public class Deli {
     List<Customer> runShift(){
         List<Customer> helped = new LinkedList<>();
         for(int i = 0; i < workers; i++){
-            Customer toHelp = customers.remove(0);
-            toHelp.help(10);
-            helped.add(toHelp);
+            if(customers.size() > 0) {
+                Customer toHelp = customers.dequeue();
+                toHelp.help(10);
+                helped.add(toHelp);
+            }
         }
         return helped;
 
     }
 
-//    public void swapQueue(Supplier<Queue<Customer>> queueConstructor) {
-//        Queue<Customer> queue = queueConstructor.get();
-//        this.customers.transferAllTo(queue);
-//        this.customers = queue;
-//    }
+    public void swapQueue(Supplier<Queue<Customer>> queueConstructor) {
+        Queue<Customer> queue = queueConstructor.get();
+        this.customers.transferAllTo(queue);
+        this.customers = queue;
+
+    }
 }

@@ -12,7 +12,7 @@ public class StrategyMaxHeap<E extends Comparable<E>> extends StrategyBTAbs<E> i
         else{
             E newRoot;
             E pushDown;
-            if(elt.compareTo(b.getRoot()) < 0){
+            if(elt.compareTo(b.getRoot()) <= 0){
                 newRoot = b.getRoot();
                 pushDown = elt;
             }
