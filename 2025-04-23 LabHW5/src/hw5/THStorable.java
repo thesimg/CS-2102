@@ -32,10 +32,10 @@ public interface THStorable {
 
     /**
      * Adds data for a given date
-     * (Implementation note: May need the THRTPDate object itself)
      * @param yyyymmdd the date string associated with the data
+     *                 TODO: need to add data parameter?
      */
-    void addDataToDate(String yyyymmdd);
+    void addDataToDate(String yyyymmdd, String sensorData);
 
     /**
      * Transfers all data from this store to another store

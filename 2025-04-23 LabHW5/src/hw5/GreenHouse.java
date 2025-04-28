@@ -4,12 +4,14 @@ import hw3.THRTPDate;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 /** Logic for a greenhouse simulator which contains multiple temperature and humidity sensors */
 public class GreenHouse {
 
     /** The simulated data store collected so far */
-    private ArrayList<THRTPDate> storeByDate = new ArrayList<>();
+    private THStorable store = new THSDefault();
 
     /** The sensors that can produce temperature and humidity values */
     private LinkedList<THSensorFD> sensors = new LinkedList<>();
@@ -31,7 +33,7 @@ public class GreenHouse {
      * @param ghCalendar the starting date for the greenhouse
      */
     public GreenHouse(GHCalendar ghCalendar) {
-        currentDate = ghCalendar; // TODO: Fix me - Encapsulation Error!!!
+        currentDate = new GHCalendar(ghCalendar);
         lastDateQueried = currentDate.toString(); // last date queried is the current date by default
         sensors.add(new THSensorFD("THSensorData1.txt"));
         sensors.add(new THSensorFD("THSensorData2.txt"));
@@ -80,17 +82,27 @@ public class GreenHouse {
         }
 
         boolean foundIt = false;
-        for(THRTPDate store : storeByDate){
-            if(store.compareTo(new THRTPDate(date)) == 0){
-                foundIt = true;
-                store.collect(sensorData.toString());
+//        for(THRTPDate store : storeByDate){
+//            if(store.compareTo(new THRTPDate(date)) == 0){
+//                foundIt = true;
+//                store.collect(sensorData.toString());
+//            }
+//        }
+//        if(!foundIt){
+//            THRTPDate store = new THRTPDate(date);
+//            store.collect(sensorData.toString());
+//            storeByDate.add(store);
+//        }
+        if(store.checkDateForData(date)){
+            Optional<THRTPDate> maybeEntry = store.getDataFromDate(date);
+            if (maybeEntry.isPresent()) {
+                THRTPDate existingEntry = maybeEntry.get();
+                existingEntry.collect(sensorData.toString());
             }
+        } else {
+            store.addDataToDate(date, sensorData.toString());
         }
-        if(!foundIt){
-            THRTPDate store = new THRTPDate(date);
-            store.collect(sensorData.toString());
-            storeByDate.add(store);
-        }
+
         return this;
     }
 
@@ -109,7 +121,7 @@ public class GreenHouse {
      */
     public GreenHouse undo(){
         // Remove the data for today
-        this.storeByDate.remove(new THRTPDate(this.currentDate.toString()));
+        this.store.removeDataOnDate(this.currentDate.toString());
         // roll back the calendar
         this.currentDate.minusDay();
         return this;
@@ -140,12 +152,13 @@ public class GreenHouse {
      */
     public String generateReport(String yyyymmdd){
         this.lastDateQueried = yyyymmdd;
-        THRTPDate currStore = new THRTPDate(yyyymmdd);
-        for(THRTPDate store : storeByDate){
-            if(store.compareTo(currStore) == 0){
-                currStore = store;
-            }
-        }
+//        THRTPDate currStore = new THRTPDate(yyyymmdd);
+//        for(THRTPDate store : storeByDate){
+//            if(store.compareTo(currStore) == 0){
+//                currStore = store;
+//            }
+//        }
+        THRTPDate currStore = store.getDataFromDate(yyyymmdd).orElse(new THRTPDate(yyyymmdd)); // if no data on that date, create empty THRTPDate object for that date
         return String.format("{%s | abnormal temps: %d | humidity: %.1f %.1f %.1f}",
                 yyyymmdd,
                 currStore.tempsOutsideRange(goodLoTemp, goodHiTemp),
@@ -174,16 +187,25 @@ public class GreenHouse {
         int countDaysHit = 0;
         while(beginCalendar.compareTo(endCalendar) <= 0){
             String yyyymmdd = beginCalendar.toString();
-            THRTPDate currStore = new THRTPDate(yyyymmdd);
+//            THRTPDate currStore = new THRTPDate(yyyymmdd);
             this.lastDateQueried = yyyymmdd;
-            for(THRTPDate store : this.storeByDate){
-                if(store.compareTo(currStore) == 0){
-                    totalTemperatureCount += store.tempsOutsideRange(goodLoTemp, goodHiTemp);
-                    totalMinHumidity += store.minHumidity();
-                    totalAvgHumidity += store.avgHumidity();
-                    totalMaxHumidity += store.maxHumidity();
-                    countDaysHit++;
-                }
+//            for(THRTPDate store : this.storeByDate){
+//                if(store.compareTo(currStore) == 0){
+//                    totalTemperatureCount += store.tempsOutsideRange(goodLoTemp, goodHiTemp);
+//                    totalMinHumidity += store.minHumidity();
+//                    totalAvgHumidity += store.avgHumidity();
+//                    totalMaxHumidity += store.maxHumidity();
+//                    countDaysHit++;
+//                }
+//            }
+            if(store.checkDateForData(yyyymmdd)){
+                THRTPDate currStore = store.getDataFromDate(yyyymmdd).orElse(new THRTPDate(yyyymmdd));
+                totalTemperatureCount += currStore.tempsOutsideRange(goodLoTemp, goodHiTemp);
+                totalMinHumidity += currStore.minHumidity();
+                totalAvgHumidity += currStore.avgHumidity();
+                totalMaxHumidity += currStore.maxHumidity();
+                countDaysHit++;
+
             }
             beginCalendar.addDay();
         }
@@ -195,6 +217,16 @@ public class GreenHouse {
                 totalMaxHumidity / Math.max(1,countDaysHit));
     }
 
+
+    /**
+     *
+     * @param storeConstructor
+     */
+    public void swapStore(Supplier<THStorable> storeConstructor) {
+        THStorable newStore = storeConstructor.get();
+        store.transferDataTo(newStore);
+        store = newStore;
+    }
 
 
     /**
