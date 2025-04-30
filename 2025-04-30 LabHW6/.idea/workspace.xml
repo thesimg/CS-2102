@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a61efbcb-a20d-4a4d-b448-e22ab67b4042" name="Changes" comment="2025-04-30 lab 6 finished (thanks grace!)">
+      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/AlreadyGuessedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/MoreThanOneLetterException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/out/production/2025-04-28 Lecture 19/2025-04-28 Lecture 19.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-29 Lecture 20/2025-04-29 Lecture 20.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-29 Lecture 20/ExampleMapApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2025-04-29 Lecture 20/out/production/2025-04-29 Lecture 20/2025-04-29 Lecture 20.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AlreadyNominatedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CandidateNotNominatedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ElectionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Examples.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I3VoteStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MoreThanOnceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MostAgreeableStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MostFirstVotesStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Votes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/GUIVotingMachine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/I3VoteStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/Votes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/VotingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/wpi/hw6/voting-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2025-04-28 Lecture 19/Examples.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/Examples.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2025-04-28 Lecture 19/WordGuesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/WordGuesser.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Exception" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;thesimg&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/thesimg/CS-2102.git&quot;,
+    &quot;accountId&quot;: &quot;b894ec90-f046-478a-b111-d391b9d7fd85&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2OZ77hIIUSbKZ2BYHJC822uoxxI" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mahrens/Downloads/HW6StarterEC",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.wpi.hw5" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GUIVotingMachine" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.hw5.GUIVotingMachine" />
+      <module name="HW5soln" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.hw5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GUIVotingMachine" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a61efbcb-a20d-4a4d-b448-e22ab67b4042" name="Changes" comment="" />
+      <created>1681756085745</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681756085745</updated>
+      <workItem from="1681756087031" duration="215000" />
+      <workItem from="1681756360479" duration="9405000" />
+      <workItem from="1681767780471" duration="487000" />
+      <workItem from="1681848756484" duration="3879000" />
+      <workItem from="1681852896095" duration="235000" />
+      <workItem from="1701472019930" duration="39000" />
+      <workItem from="1746036762040" duration="753000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2025-04-30 lab 6 finished (thanks grace!)" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-04-30 lab 6 finished (thanks grace!)" />
+  </component>
+</project>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.wpi.hw6.VotingController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label fx:id="candidates"/>
+    <TextField fx:id="nominate" text="Nominate Me!"/>
+
+    <Button text="Nominate!" onAction="#onNominateClick"/>
+    <TextField fx:id="vote1" text="first choice" />
+    <TextField fx:id="vote2" text="second choice"/>
+    <TextField fx:id="vote3" text="third choice"/>
+    <Button text="Vote!" onAction="#onVoteClick"/>
+
+    <Button text="Winner?" onAction="#onWinnerClick"/>
+    <Label fx:id="winner"/>
+
+    <HBox alignment="CENTER">
+      <Label text="error:" />
+      <Label fx:id="error" />
+    </HBox>
+
+    <!-- TODO: ADD TWO BUTTONS FOR CHANGING THE STRATEGY AND SET onAction TO BE YOUR NEW METHODS! -->
+
+
+
+</VBox>

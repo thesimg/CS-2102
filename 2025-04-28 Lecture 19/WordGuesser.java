@@ -37,7 +37,13 @@ public class WordGuesser {
 
     }
 
-    public void guessLetter(String letter){
+    public void guessLetter(String letter) throws AlreadyGuessedException, MoreThanOneLetterException {
+        if(letter.length() > 1){
+            throw new MoreThanOneLetterException(letter);
+        }
+        if(guessedLetters.contains(letter.charAt(0))) {
+            throw new AlreadyGuessedException(letter);
+        }
         this.guessedLetters.add(letter.toCharArray()[0]);
         boolean foundLetter = false;
         for(int i = 0; i < currentWord.length; i++){
