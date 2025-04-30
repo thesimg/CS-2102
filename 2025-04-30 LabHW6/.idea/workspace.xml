@@ -4,51 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a61efbcb-a20d-4a4d-b448-e22ab67b4042" name="Changes" comment="2025-04-30 lab 6 finished (thanks grace!)">
-      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/AlreadyGuessedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/MoreThanOneLetterException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/out/production/2025-04-28 Lecture 19/2025-04-28 Lecture 19.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-29 Lecture 20/2025-04-29 Lecture 20.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-29 Lecture 20/ExampleMapApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2025-04-29 Lecture 20/out/production/2025-04-29 Lecture 20/2025-04-29 Lecture 20.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AlreadyNominatedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CandidateNotNominatedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ElectionData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Examples.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I3VoteStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MoreThanOnceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MostAgreeableStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MostFirstVotesStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Votes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/GUIVotingMachine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/I3VoteStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/Votes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wpi/hw6/VotingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/wpi/hw6/voting-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2025-04-28 Lecture 19/Examples.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/Examples.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2025-04-28 Lecture 19/WordGuesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2025-04-28 Lecture 19/WordGuesser.java" afterDir="false" />
-    </list>
+    <list default="true" id="a61efbcb-a20d-4a4d-b448-e22ab67b4042" name="Changes" comment="2025-04-30 lab 6 finished (thanks grace!)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,8 +126,17 @@
       <workItem from="1681848756484" duration="3879000" />
       <workItem from="1681852896095" duration="235000" />
       <workItem from="1701472019930" duration="39000" />
-      <workItem from="1746036762040" duration="753000" />
+      <workItem from="1746036762040" duration="1900000" />
     </task>
+    <task id="LOCAL-00001" summary="2025-04-30 lab 6 finished (thanks grace!)">
+      <option name="closed" value="true" />
+      <created>1746037751514</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746037751514</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
